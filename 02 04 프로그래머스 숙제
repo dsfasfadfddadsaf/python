@@ -1,0 +1,16 @@
+def solution(board, moves):
+    answer = 0
+    box = []
+    for i in moves:
+        for j in range(len(board[0])):
+            if board[j][i-1] != 0:
+                box.append(board[j][i-1])
+                board[j][i-1] = 0
+                print(box)
+                if  len(box) > 1 and box[-1] == box[-2]:
+                     answer += 2
+                     del box[-2]
+                     del box[-1]
+                break
+
+    return answer
