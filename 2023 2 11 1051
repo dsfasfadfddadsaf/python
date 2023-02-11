@@ -1,0 +1,31 @@
+# def solution(babbling):
+#     cnt = 0
+#     for bab in babbling:
+#         for i in [ "aya", "ye", "woo", "ma" ]:
+#             if bab.count(i*2) < 1 and i in bab:
+#                 bab = bab.replace(i,'')
+#         if bab == '':
+#             cnt += 1
+#     return cnt
+# print(solution(["aya", "yee", "u", "maa"]))
+#print(solution(["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"]))
+
+# n = int(input())
+# com = []
+# for _ in range(n):
+#     string = input()
+#     if len(com) == 0:
+#         com = list(string)
+#     else:
+#         for l in range(len(string)):
+#             if string[l] != com[l]:
+#                 com[l] = '?'
+# print(''.join(com))
+
+b_list = []
+n,m = map(int,input().split())
+for i in range(n):
+    tmp = list(map(int,list(input())))
+    b_list.append(tmp)
+for l in range(min(n,m),0,-1):
+    for k in range( max(n,m) - min(n,m))
