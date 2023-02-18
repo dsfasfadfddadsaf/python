@@ -1,0 +1,53 @@
+# b_list = []
+
+# for i in range(n):
+#     tmp = list(map(int,list(input())))
+#     b_list.append(tmp)
+# for l in range(min(n,m),0,-1):
+# #     for k in range( max(n,m) - min(n,m)):
+# n,m = map(int,input().split())
+# matrix = [list(map(int,list(input().strip()))) for _ in range(n)]
+# maximum = min(n,m)
+# for i in range(maximum-1,0,-1):
+#     for x in range(n-i):
+#         for y in range(m-i):
+#             if matrix[x][y] == matrix[x+i][y]== matrix[x][y+i] == matrix[x+i][y+i]:
+#                 print((i+1)**2)
+#                 exit()
+# print(1)
+
+
+# num = int(input())
+# for _ in range(num):
+#     n , m = map(int, input().split())
+#     n %= 10
+#     if n in [1,5,6]:
+#         print(n)
+#     elif n in [4,9]:
+#         if m%2 ==0:
+#             print(n ** 2 % 10)
+#         else:
+#             print(n)
+#     elif n == 0:
+#         print(10)
+#     else:
+#         if m % 4 == 0:
+#             print(n ** 4 % 10)
+#         else:
+#             print(n ** (m % 4) % 10)
+
+sco = 0
+n,new,p = map(int,input().split())
+if n == 0:
+    print(1)
+else:
+    sco = list(map(int,input().split()))
+    if new in sco: #만약 동일한 숫자가 있으면
+        sco.append(new)
+        sorted(sco)
+        if len()
+            
+        else:
+            print(sco.index(new)+1)
+    else: # 동일한 숫자가 없으면
+        sco.append(new)
