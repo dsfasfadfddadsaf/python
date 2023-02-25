@@ -1,0 +1,49 @@
+
+#n,new,p = map(int,input().split())
+
+# if n == 0:
+#     print(1)
+# else:
+#     sco = list(map(int,input().split()))
+#     sco.append(new)
+#     if len(sco) > p:
+#         for i in range(len(sco)):
+#             if sco[-1] == sco[i]:
+#                 print(sco.index(i)+1)
+#                 exit()
+#             else:
+#                 print(-1)
+#                 exit()
+
+    #else:
+
+#해설
+# n,new,p = map(int,input().split())
+# if n == 0:
+#     print(1)
+# else:
+#     sco = list(map(int,input().split()))
+#
+#     if n == p and sco[-1] >= new:
+#         print(-1)
+#     else:
+#         rank = n + 1
+#         for i in range(n):
+#             if sco[i] <= new:
+#                 rank = i + 1
+#                 break
+#         print(rank)
+
+# def myint(x, base = 10):
+#     result = 0
+#     for i in range(len(x)):
+#         result += int(x[i]) * base ** (len(x) - (i + 1))
+#     return result
+#print(myint('1010'),16)
+
+a = "Hello world"
+def myfind(string,substr,start = 0,end = -1):
+    for i in range(string[start],string[end]):
+        if string[i] == substr:
+            return i
+print(myfind(a,'lo'))
