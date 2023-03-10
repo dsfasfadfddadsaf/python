@@ -1,0 +1,33 @@
+fl = int(input())
+ho = int(input())
+
+def make_apart(lf:int,oh:int):
+    apart = []
+    a = []
+    for i in range(lf):
+        for l in range(oh):
+            a.append(str(100*(i+1)+(l+1))+'호')
+        apart.append(a)
+        a = []
+    return apart
+
+
+info = [['1명','3명'],['2명','0명'],['3명','6명']]
+# 두개의 리스트를 가지고 아파트의 몇호에 몇명이 사는지 리턴하는 apartment_info()를 구현하시오.
+# apartment와 info의 크기는 서로 같다고 가정한다. 같은 위치에 있는 값끼리 묶어서 나타내명 된다.
+
+def apartment_into(apart,info):
+    num_list = []
+    d = {}
+    for i in range(len(info)):
+        for l in range(len(info[i])):
+            d[apart[i][l]] = info[i][l]
+        num_list.append(d)
+        d = {}
+    return num_list
+print(apartment_into(make_apart(fl,ho),info))
+
+# apartment_info(apartment,info)
+# [[{'101호':'1명'},{'102호':'3명'}],
+#  [{'201호','2명'},{'202호','0명'}]
+#  [{'301호','3명'},{'302호','6명'}]
