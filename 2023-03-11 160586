@@ -1,0 +1,23 @@
+def solution(keymap, targets):
+    answer = []
+    dict = {}
+    cnt = 0
+    for i in range(len(keymap)):
+        for k in keymap[i]:
+            if not k in dict:
+                dict [k] = i
+    for l in range(len(targets)):
+        for j in targets[l]:
+            if not j in dict :
+                dict[j] = l
+            else:
+                if l < dict[targets[l]]:
+                    dict[targets[l]] = l
+    print(dict)
+    for m in targets:
+        cnt = 0
+        for n in m:
+           cnt += dict[n]
+        answer.append(cnt)
+    return answer
+print(solution(["ABACD", "BCEFD"],["ABCD","AABB"]))
