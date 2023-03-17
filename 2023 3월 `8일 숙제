@@ -1,0 +1,21 @@
+
+def solution(keymap, targets):
+    answer = []
+    dict = {}
+    cnt = 0
+    for i in keymap:
+        for l in range(len(i)):
+            if not i[l] in dict:
+                dict[i[l]] = l+1
+            else:
+                if l+1 < dict[i[l]]:
+                    dict[i[l]] = l + 1
+    for j in targets:
+        for k in j:
+            if not k in dict:
+                cnt = -1
+            else:
+                cnt += dict[k]
+        answer.append(cnt)
+        cnt = 0
+    return answer
