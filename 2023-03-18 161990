@@ -1,0 +1,34 @@
+# def solution(keymap, targets):
+#     answer = []
+#     dict = {}
+#     for i in keymap:
+#         for l in range(len(i)):
+#             if not i[l] in dict:dict[i[l]] = l+1
+#             else:
+#                 if l+1 < dict[i[l]]:dict[i[l]] = l + 1
+#     for j in targets:
+#         cnt = 0
+#         for k in j:
+#             if not k in dict:
+#                 cnt = -1
+#                 break
+#             else:
+#                 cnt += dict[k]
+#         answer.append(cnt)
+#     return answer
+# def recursion(a):
+#     if a == 1:
+#         return 1
+#     return a + recursion(a-1)
+#
+# print(recursion(5))
+
+def solution(wallpaper):
+    answer = [0,len(wallpaper),0,len(wallpaper)]
+    for i in range(len(wallpaper)):
+        for l in range(len(wallpaper[i])):
+                if wallpaper[i][l] == '#':
+                    if i < answer[0]:
+                        answer[0] = i
+    return answer
+print(solution([".#...", "..#..", "...#."]))
