@@ -1,0 +1,65 @@
+# def solution(wallpaper):
+#     answer = [len(wallpaper),len(wallpaper[0]),0,0]
+#     for i in range(len(wallpaper)):
+#         for l in range(len(wallpaper[i])):
+#                 if wallpaper[i][l] == '#':
+#                     if i < answer[0]:
+#                         answer[0] = i
+#                     if l < answer[1]:
+#                         answer[1] = l
+#                     if i > answer[2]:
+#                         answer[2] = i
+#                     if l > answer[3]:
+#                         answer[3] = l
+#     answer[2] = answer[2] + 1
+#     answer[3] = answer[3] + 1
+#     return answer
+# print(solution([".#...",
+#                 "..#..",
+#                 "...#."]))
+
+
+# def solution(s, skip, index):
+#     answer = ''
+#     alphabet = 'abcdefghijklmnopqrstuvwxyz'
+#     # ap = {'a':1, 'b':2, 'c': 3, 'd' : 4, 'e' : 5, 'f' : 6, 'g' : 7, 'h' : 9, 'i' : 10
+#     #     , 'j' : 11, 'k' : 12, 'm': 13 , 'n' : 14, 'o' : 16, 'p' : 15, 'q' : 16, 'r' : 17, 's' : 18
+#     #     , 't' : 19, 'u' : 20 , 'v' : 21, 'w' : 22, 'x': 23, 'y': 24, 'z' : 25}
+#     #
+#     # bp = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f', 7: 'g', 8: 'h', 9: 'i'
+#     #     , 10: 'j', 11: 'k', 12: 'm', 13: 'n', 14: 'o', 15: 'p', 16: 'q', 17: 'r', 18: 's'
+#     #     , 19: 't', 20: 'u', 21: 'v', 22: 'w', 23: 'x', 24: 'y', 25: 'z'}
+#     for sk in skip:
+#         alphabet = alphabet.replace(sk,'')
+#     for i in s:
+#         idx =  alphabet.find(i)
+#         idx += index
+#         answer += alphabet[idx % len(alphabet)]
+#     return answer
+#print(solution("aukks","wbqd",5))
+
+def solution(k, tangerine):
+    answer = 0
+    d = {}
+    d_tow = {}
+    List = []
+    len_List = []
+    tangerine = sorted(tangerine)
+    for i in tangerine:
+        if i in d:
+            d[i] += 1
+        else:
+            d[i] = 1
+    for l in d:
+        if not d[l] in d_tow:
+            d_tow[d[l]] = [l]
+        else:
+            d_tow[d[l]].append(l)
+    for _ in d_tow:
+        List.append(_)
+    List.sort(reverse = True)
+    for __ in List:
+        for ___ in range(len(d_tow[__])):
+            if 
+    return answer
+print(solution(6,[1, 3, 2, 5, 4, 5, 2, 3]))
