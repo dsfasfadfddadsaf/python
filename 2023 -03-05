@@ -1,0 +1,18 @@
+def solution(wallpaper):
+    answer = [len(wallpaper[0]),len(wallpaper),0,0]
+    for i in range(len(wallpaper)):
+        for l in range(len(wallpaper[i])):
+                if wallpaper[i][l] == '#':
+                    print(i,l)
+                    if l < answer[0]:
+                        answer[0] = l
+                    if l > answer[2]:
+                        answer[2] = l
+                    if i < answer[1]:
+                        answer[1] = i
+                    if i > answer[3]:
+                        answer[3] = i
+    return answer
+print(solution([".#...",
+                "..#..",
+                "...#."]))
