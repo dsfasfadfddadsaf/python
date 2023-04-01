@@ -1,0 +1,73 @@
+# def solution(k, tangerine):
+#     d = {}
+#     d_tow = {}
+#     List = []
+#     tangerine = sorted(tangerine)
+#     for i in tangerine:
+#         if i in d:d[i] += 1
+#         else:d[i] = 1
+#     for l in d:
+#         if not d[l] in d_tow:d_tow[d[l]] = [l]
+#         else:d_tow[d[l]].append(l)
+#     for _ in d_tow:List.append(_)
+#     List.sort(reverse = True)
+#     cnt = 0
+#     for num in List:
+#         for n in d_tow[num]:
+#             k -= num
+#             cnt += 1
+#             if k <= 0:return cnt
+# print(solution(6,[1, 3, 2, 5, 4, 5, 2, 3]))
+
+
+# def solution(cards1, cards2, goal):
+#
+#     idx1 = 0
+#     idx2 = 0
+#     for g in goal:
+#         if idx1 < len(cards1) and g == cards1[idx1]:
+#             idx1 += 1
+#         elif idx2 < len(cards2) and g == cards2[idx2]:
+#             idx2 += 1
+#         else:
+#             return 'No'
+#     return "Yes"
+# print(solution(["i", "drink", "water"],
+#                ["want", "to"],
+#                ["i", "want", "to", "drink", "water"]))
+# print(solution(["i", "water", "drink"],["want", "to"],["i", "want", "to", "drink", "water"]))
+
+def solution(park, routes):
+    answer = []
+    small_park_map = []
+    park_map = []
+    D_routes = {}
+
+    # [][]로 파크 지도롤 표현
+    # for i in park:
+    #     for l in i:
+    #         small_park_map.append(l)
+    #     park_map.append(small_park_map)
+    #     small_park_map = []
+
+    #이동 명령 딕셔너리로 표현
+    for j in routes:
+        Str,Num = j.split( )
+        if Str == "N" or Str == "W":
+            D_routes[Str] = -int(Num)
+        else:
+            D_routes[Str] = int(Num)
+
+    #시작위치 찾기
+    s = []
+    for l in range(len(park)):
+        for u in range(len(park[l])):
+            if park[l][u] == 'S':
+                s = [l,u]
+                break
+    print(s)
+    return answer
+print(solution(["SOO",
+                "OOO",
+                "OOO"]
+            ,["E 2","S 2","W 1"]))
