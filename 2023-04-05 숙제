@@ -1,0 +1,18 @@
+def solution(clothes):
+    answer = 0
+    D_clothes = {}
+    # 하나 씩 낄때
+    answer += len(clothes)
+
+    # 딕셔너리로 변형 {의상의 종류 : 해당 의상의 갯수}
+    for i in clothes:
+        if i[1] in D_clothes.keys():
+            D_clothes[i[1]] += 1
+        else:
+            D_clothes[i[1]] = 1
+
+    # 2~(의상의 종륙)까지 새기
+    for j in range(len(D_clothes)):
+        for l in range(2,len(D_clothes)+1):
+            answer += j*l
+    return answer
