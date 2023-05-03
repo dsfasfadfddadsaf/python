@@ -1,0 +1,14 @@
+def solution(land):
+    answer = 0
+    # 기억 할 변수
+    old_map = -1
+    # 한줄씩 보기
+    for i in land:
+        if old_map == -1:
+            answer += max(i)
+            old_map = i.index(max(i))
+        else:
+            i[old_map] = min(i)
+            answer += max(i)
+            old_map = i.index((max(i)))
+    return answer
