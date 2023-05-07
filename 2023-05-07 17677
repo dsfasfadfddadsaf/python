@@ -1,0 +1,59 @@
+# 미완성형
+# def solution(fees, records):
+#     answer = []
+#     # 입차 되어있는 차 번호를 기억하는 딕셔너리(차 번호: 들어온 시간)
+#     records_D = {}
+#     # 차들의 주차 시간을 기억하는 딕셔너리(차 번호: snwjr 시간)
+#     check_D = {}
+#     for i in records:
+#         #시간,차 번호,입출차
+#         T,C,W = i.split()
+#         # 시간을 분단위로 바꾸기
+#         hour,minute = T[0:2],T[3:5]
+#         T = int(minute) + int(hour)*60
+#         #입차 할때
+#         if W == 'IN':
+#             records_D[C] = T
+#         #출차 할떄
+#         else:
+#             #주차 전적이 있다면
+#             if C in check_D:
+#                 # 주차 시간 =  (출차한 시간 - 입차한 시간) + 전에 있던 주차시간
+#                 check_D[C] = (T-records_D[C]) + check_D[C]
+#
+#             # 주차 전적이 없다면
+#             else:
+#                 check_D[C] = T - records_D[C]
+#             del records_D[C]
+#     print(check_D)
+#     print(records_D)
+#     if not records_D == {}:
+#         for j in records_D:
+#             n,m = j , records_D[j]
+#             check_D[j]  = (23 * 60 + 59) - m
+#
+#             del records_D[j]
+#     print(check_D)
+#     return answer
+# print(solution([180, 5000, 10, 600],
+#                ["05:34 5961 IN", "06:00 0000 IN",
+#                 "06:34 0000 OUT", "07:59 5961 OUT",
+#                 "07:59 0148 IN", "18:59 0000 IN",
+#                 "19:09 0148 OUT", "22:59 5961 IN",
+#                 "23:00 5961 OUT"]))
+
+def solution(str1, str2):
+    answer = 0
+    str1 = str1.upper()
+    str2 = str2.upper()
+    List = []
+    for i in range(len(str1)-1):
+        if str1[i:i+2].isalnum():
+            List.append(str1[i:i+2])
+    for l in range(len(str2)-1):
+        if str2[l:l+2].isalnum():
+            List.append(str2[l:l+2])
+    print(List)
+
+    return answer
+print(solution('FRANCE','french'))
