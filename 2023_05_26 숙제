@@ -1,0 +1,22 @@
+
+def solution(msg):
+    answer = []
+    cnt = 0
+    STR = ''
+    dict = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    for i in range(len(msg)):
+        STR += msg[i]
+        while STR in dict:
+            i -= cnt
+            if not STR+msg[i+1] in dict:
+                dict.append(STR+msg[i+1])
+                answer.append(dict.index(STR)+1)
+                break
+            else:
+                STR += msg[i+1]
+                cnt += 1
+    return answer
+
+print(solution("KAKAO"))
+# print(solution("TOBEORNOTTOBEORTOBEORNOT"))
+# print(solution("ABABABABABABABAB"))
