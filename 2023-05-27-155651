@@ -1,0 +1,29 @@
+def solution(book_time):
+    answer = 0
+    book_time.sort()
+    cnt = 0 
+    #방들의 끝나는 시간
+    loom_time = []
+    for i in book_time:
+        # 처음
+        if loom_time == []:
+            #끝나는 시간
+            T,t = i[1].split(':')
+            # 분으로 분해
+            loom_time.append((int(T) * 60)+int(t)+10)
+        else:
+            # 다음 예약에 들어오는 시간
+            T,t = i[0].split(':')
+            # 둘러 봐서 끝난 방이 있는지
+            for l in loom_time:
+                # 끝난 방이 있다
+                if 
+                if l <= int(T) * 60 + int(t):
+                    loom_time[loom_time.index(l)] = int(T) * 60 + int(t)
+                
+                # 끝난 방이 없다
+                answer += 1
+                
+    return answer
+print(solution([["15:00", "17:00"], ["16:40", "18:20"],
+                ["14:20", "15:20"], ["14:10", "19:20"], ["18:20", "21:20"]]))
