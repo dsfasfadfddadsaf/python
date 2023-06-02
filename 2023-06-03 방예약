@@ -1,0 +1,37 @@
+
+#시간을 정수 분으로 바꾸는 함수
+def time_split(time):
+    start_T,start_t = time[0].split(':')
+    end_T,end_t  = time[1].split(':')
+    time_start =  int(start_T)* 60 + int(start_t)
+    time_end  = int(end_T)* 60 + int(end_t)
+    return [time_start,time_end]
+def solution(book_time):
+    book_time = sorted(book_time)
+    answer = 0
+    print(book_time)
+    #방들의 끝나는 시간을 알려주는 리스트
+    loom_time = []
+    for i in book_time:
+        # 처음 들어오는 방
+        if loom_time == []:
+            answer += 1
+            #들어오는 방의 끝나는 시간 = 끝나는 시간 + 청소시간 10분
+            loom_time.append(time_split(i)[1]+10)
+            continue
+        # 처음 들어오는 방이 아니라면
+        else:
+            #방들을 둘러 봐서
+            for l in loom_time:
+                # 들어오는 시간 >= 청소 끝나는 시간의 방이 있으면
+                if time_split(i)[0] >= l:
+                    loom_time[loom_time.index(l)] = time_split(i)[1] + 10
+                    continue
+                # 들어오는 시간에 청소가 끝나는 방이 없으면
+                else:
+                    # 방 한개 추가
+                    answer += 1
+                    loom_time.append(time_split(i)[1]+10)
+    return answer
+print(solution([["15:00", "17:00"], ["16:40", "18:20"],
+                ["14:20", "15:20"], ["14:10", "19:20"], ["18:20", "21:20"]]))
