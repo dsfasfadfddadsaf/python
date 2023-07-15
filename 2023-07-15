@@ -1,0 +1,105 @@
+# class Human:
+#     def __init__(self,a,b):
+#         self.name = a
+#         self.주민번호 = b
+#         self.age = self.ret_age()
+#         self.gender = self.ret_gender()
+#     def ret_age(self):
+#         y = int(self.주민번호[:2])
+#         if y >23:
+#             y +=1900
+#         else:
+#             y += 2000
+#         return f"{2023 - y}살"
+#
+#     def ret_gender(self):
+#         x = self.주민번호.split('-')[1][0]
+#         if x in '13':
+#             return '남자'
+#         else:
+#             '여자'
+#     def func(self,other):
+#         relation = ""
+#         if self.age > other.age:
+#             if self.gender == '남자':
+#                 if other.gender == "남자":
+#                     relation = '형'
+#                 else:
+#                     relation = "오빠"
+#             else:
+#                 if other.gender == "남자":
+#                     relation = "누나"
+#                 else:
+#                     relation = "언니"
+#         elif self.age < other.age:
+#             if self.gender == '남자':
+#                 relation = '남동생'
+#             else:
+#                 relation = '여동생'
+#         else:
+#             relation = '친구'
+#         return f"{self.name}은 {other.name}의 {relation}입니다."
+# A = Human('한종찬',"20070602-3123456")
+# # print(A.name)
+# # print(A.주민번호)
+# B = Human('홍길동',"021113-4321012")
+# print(A.func(B))
+
+# class Rectangle:
+#     def __init__(self,x1,y1,x2,y2):
+#         self.width = self.ret_width()
+#         self.height = self.ret_height()
+#         self.X = (x1,x2)
+#         self.Y = (y1,y2)
+#     def ret_width(self):
+#         # 너비 돌려주는 함수 (밑면)
+#         return abs(self.Y[0] - self.X[0])
+#
+#     def ret_height(self):
+#         # 높이를 돌려주는 함수
+#         return abs(self.X[1] - self.Y[1])
+#     def  ret_area(self):
+#         # 넓이 보여주는 함수
+#         return self.width * self.height
+#     def ret_perimeter(self):
+#         return (self.width + self.height) * 2
+#
+#     def __gt__(self, other): # A > B
+#         return  self.ret_area() > other.ret_area()
+#     def __ge__(self, other): # A >= B
+#         return self.__gt__(other) >= other.__eq__(other)
+#     def __eq__(self, other): # A == B
+#         return self.ret_area() == other.ret_area()
+#     def __lt__(self, other): # A < B
+#         return not self.__ge__(other)
+#     def __le__(self, other): # A <= B
+#         pass
+#     def __ne__(self, other): # A!= B
+#         return not self.__eq__(other)
+#     def __add__(self, other):
+#         return not self.__eq__(other)
+#     def __pow__(self, power, modulo=None):
+#         pass
+# A = Rectangle(0,0,3,3)
+# print(A.ret_area())
+# print(A.ret_perimeter)
+
+class Koreannum:
+    def __init__(self, num):
+        self.num = num
+
+    def int(self):
+        NUM = 0
+        a = 1
+        dic = {'이':2,'삼':3,'사':4,'오':5,'육':6,'칠':7,'팔':8,'구':9}
+        lowparts = {"천": 1000, "백": 100, '십': 10}
+        for i in self.num:
+            if i in lowparts:
+                NUM += a*lowparts[i]
+            else:
+                a = dic[i]
+
+        return NUM
+
+strnum = Koreannum("천이백십삼")
+print(int(strnum)) # =>1213
