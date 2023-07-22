@@ -1,0 +1,91 @@
+import random
+import time
+a = [i for i in range(10001)]
+random.shuffle(a)
+start = time.time()
+# 버블정렬
+# def Bubble_Sorting(Bubble,reversed = False):
+#     if reversed == False:
+#         for l in range(1,len(Bubble)):
+#             for i in range(len(Bubble)-l):
+#                 if Bubble[i] > Bubble[i+1]:
+#                     Bubble[i],Bubble[i+1] = Bubble[i+1],Bubble[i]
+#     if reversed == True:
+#         for l in range(1, len(Bubble)):
+#             for i in range(len(Bubble) - l):
+#                 if Bubble[i] < Bubble[i + 1]:
+#                     Bubble[i], Bubble[i + 1] = Bubble[i + 1], Bubble[i]
+#     return Bubble
+# print(Bubble_Sorting([2,5,3,4,1]))
+# Bubble_Sorting(a)
+# end = time.time()
+# print("버블정렬 소요시간 = ",end-start)
+
+
+
+# 선택정렬
+# def serccion_surting(serccion,reversed = False):
+#     if reversed == False:
+#         for i in range(0, len(serccion)):
+#             Min = 0
+#             cnt = 0
+#             for l in range(i, len(serccion)):
+#                 if cnt == 0:
+#                     Min = serccion[l]
+#                     cnt = 1
+#                 else:
+#                     if Min < serccion[l]:
+#                         Min = serccion[l]
+#             M = serccion.index(Min)
+#             serccion[M], serccion[i] = serccion[i], serccion[M]
+#         return serccion
+#
+#     if reversed == True:
+#
+#
+#         for i in range(0,len(serccion)):
+#             Min  = 0
+#             cnt = 0
+#             for l in range(i,len(serccion)):
+#                if cnt == 0:
+#                    Min = serccion[l]
+#                    cnt = 1
+#                else:
+#                    if Min > serccion[l]:
+#                        Min = serccion[l]
+#             M = serccion.index(Min)
+#             serccion[M],serccion[i] = serccion[i],serccion[M]
+#         return serccion
+# print(serccion_surting([2,5,3,4,1]))
+
+
+#serccion_surting(a)
+# end = time.time()
+# print('선택정렬 소요시간 = ',end - start)
+
+
+
+# 삽입정렬
+# def insertion_sort(insertion,reversed = False):
+#     if reversed == False:
+#         for i in range(len(insertion)-2,0,-1):
+#             for l in range(len(insertion)-i,0,-1):
+#                 if insertion[l] < insertion[l-1]:
+#                     insertion[l],insertion[l-1] = insertion[l-1],insertion[l]
+#     elif reversed == True:
+#         for i in range(len(insertion)-2,0,-1):
+#             for l in range(len(insertion)-i,0,-1):
+#                 if insertion[l] > insertion[l-1]:
+#                     insertion[l],insertion[l-1] = insertion[l-1],insertion[l]
+#     return insertion
+# print(insertion_sort([2,5,3,4,1]))
+#
+# end = time.time()
+# print('삽입정렬 소요시간',end-start)
+
+# 셸 정렬
+def Shell_sort(shell,reversed = False):
+    
+
+
+print(Shell_sort([2,5,3,4,1],False))
