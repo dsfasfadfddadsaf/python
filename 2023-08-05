@@ -1,0 +1,63 @@
+# low = "가장 왼쪽에 있는 값"
+# high = '가장 오른쪽에 있는값'
+# middle = '중앙에 있는값'
+#
+# import random
+# arr = []
+# while len(arr) < 100:
+#     x= random.randint(0,100)
+#     if x not in arr:
+#         arr.append(x)
+# arr = sorted(arr)
+# def searcg(arr,target):
+#     arr.sort()
+#     low = 0
+#     cnt = 0
+#     gigh = len(arr)-1
+#     while low <= gigh:
+#         middle = (gigh+low) // 2
+#         cnt += 1
+#         if arr[middle] == target:
+#             return f"{target}은 arr의 {middle}번째에 존재합니다. 시도횟수 {cnt}회"
+#         elif arr[middle] > target:
+#             gigh = middle - 1
+#         elif arr[middle] < target:
+#             low =  middle + 1
+#     return f"{target}은 arr에 존재하지 않습니다.시도횟수 {cnt}회"
+# print(f"arr = {arr}")
+# target = int(input('찾고자 하는 값을 입력하시오:'))
+# print(searcg(arr,target))
+
+class koreannum:
+    def __init__(self,data):
+        if type(data) not  in [str,int]:
+            raise  Exception("정수나 문자열을 입력할 수 있습니다")
+        self.num = data
+
+    def __str__(self):
+        if type(self.num ) == str:
+            return self.num
+        if self.num == 0 :
+            return "영"
+        int_num = self.num
+        digit_list = ["", "일", "이", "삼", '사', '오', '육', '칠', '팔', '구']
+        low_part_list = {1: "", 10: "십", 100: '백', 1000: '천',}
+        high = {10000: "만",100000000: "억",1000000000000: '조'}
+        max_part_div = 1000000000000
+        high_part_div = max_part_div
+        low_part_div = 1000
+        part = int_num
+        
+        while part:
+            string = ""
+            digit = part // low_part_div
+            if digit:
+                if low_part_list == 1 or digit != 1:
+                    string += digit_list[digit]
+                string += low_part_list[low_part_div]
+                part %= low_part_div
+            low_part_div //= 10
+        return str_num
+
+A = koreannum (1234)
+print(str(A))
