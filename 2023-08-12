@@ -1,0 +1,52 @@
+# string = '이천삼백사십오자삼천오백이십삼해천삼백구십이경삼조이십육억이만삼백만칠천이십오'
+# def str_to_int(string):
+#     answer = 0 #리턴할 값
+#     INT = 0
+#     INt = 1 #숫자
+#     S = 1 #'부호'
+#     ist_list = ["일", "이", "삼", '사', '오', '육', '칠', '팔', '구']
+#     low_D = {'십': 10,'백': 100,'천': 1000,}
+#     big_D = {'만':10000,
+#              '억':100000000,
+#              '조':1000000000000,
+#              '경':10000000000000000,
+#              '해':100000000000000000000,
+#              '자':1000000000000000000000000}
+#     if '마이너스' in string:
+#         S = -1
+#         string = string.replace('마이너스','')
+#     for i in string:
+#         if i in ist_list:
+#             INt = ist_list.index(i)+1
+#         elif i in low_D:
+#             STR = low_D[i]
+#             INT += INt * STR
+#         elif i in big_D:
+#             answer += (INT+INt) * big_D[i]
+#             INT = 0
+#     answer += (INT+INt)
+#     answer *= S
+#     return answer
+# # int_num = str_to_int(string)
+# # print(int_num)
+# #123456789
+# int_num = str_to_int(string)
+# print(int_num)
+
+def solution(people, limit):
+    answer = 0
+    people = sorted(people,reverse=True)
+    if len(people) == 1:
+        return 1
+    else:
+        while people != []: #리스트가 빈 리스트가 아니면 실행
+            if people[0] + people[-1] > limit: #최소값과 최댓값의 합이 limit보다 크면 
+                del people[0]   #가장 큰수를 제거하고
+                answer += 1 #가장큰수만 보내기
+            else:
+                
+
+    #return answer
+
+print(solution([70, 50, 80, 50],100))
+#print(solution([70, 80, 50],100))
