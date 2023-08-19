@@ -1,0 +1,106 @@
+# def solution(people, limit):
+#     answer = 0
+#     R = people.index(min(people))
+#     people = sorted(people,reverse=True)
+#     while people != []: #리스트가 빈 리스트가 아니면 실행
+#         if len(people) == 1:
+#             answer += 1
+#             break
+#         if people[0] + people[-1] > limit: #최소값과 최댓값의 합이 limit보다 크면
+#             people.remove(people[0])   #가장 큰수를 제거하고
+#             answer += 1 #가장큰수만 보내기
+#         else: #아니라면
+#             for i in range(1,len(people)):
+#                 if limit - people[0] >= people[i] and people[R] <= people[i] :
+#                     R = i
+#                 people.remove(people[R])
+#                 people.remove(people[0])
+#                 answer += 1
+#     return answer
+#
+# print(solution([70, 50, 80, 50,40,40,60,46,66,54,77],100))
+# print(solution([70, 80, 50],100))
+
+# def solution(people,limit):
+#     answer = 0
+#     people.sort()
+#     a = 0
+#     b = len(people) - 1
+#     while a < b:
+#         if people[b] + people[a] <= limit :
+#             a += 1
+#             answer += 1
+#         b -= 1
+#     return len(people) - answer
+# print(solution([70, 50, 80, 50],100))
+# print(solution([70, 80, 50],100))
+
+# class stackElenent:
+#     def __init__(self,data,link):
+#         #요소의 값
+#         self.data = data
+#         # 다음 요소의 위치
+#         self.link = link
+# class Stack:
+#     def __init__(self):
+#         # self.top: 항상 Stack의 최상위 요소를 확인한다.
+#         self.top = None
+#
+#     # 가장 최사위 노도의 데이터를 return하는 함수
+#     #1개의 사용 위치
+#     def peek(self):
+#         if self.top is None:
+#             return None
+#         else:
+#             return self.top.data
+#     def push(self,deta):
+#         # 비어있을 때
+#         # Element 생성(data: 입력받은 데이터, link: 아무것도 없으므로 None)
+#         # 새로운 Element가 들어왔으므로 top은 가장 최상위 Element를 가리킨다.
+#         if  self.top is None:
+#             elem =  stackElenent(deta,None)
+#             self.top = elem
+#         # 비어있지 않을 때
+#         # Elenment 생성(data: 입력받은 데이터, link: 기존의 top이 바라보던 Element)
+#         # 새로운 Element가 들어왔으므로 top은 방금 들어온 Element를 가리킨다.
+#
+#         else:
+#             elem = stackElenent(deta,self.top)
+#             self.top = elem
+#     def pop(self):
+#         # 스텍이 비어있는 경우
+#         if self.top is None:
+#             return None
+#         # 스텍이 비어있지 않는 경우
+#         else:
+#             ret_data = self.top.data
+#             self.top = self.top.link
+#             return ret_data
+# st = Stack()
+# print(st.peek())
+#
+# for i in range(1,6):
+#     st.push(i)
+#     print(st.peek())
+#     print(st.peek())
+# for _ in range(5):
+#     print(st.pop())
+
+def solution(prices):
+    answer = []
+    cnt =  0
+    for i in range(len(prices)):
+        if i == len(prices):
+            answer.append(0)
+        else:
+            for l in range(i+1,len(prices)):
+                cnt += 1
+                if prices[i] > prices[l]:
+                    break
+
+            answer.append(cnt)
+            cnt = 0
+
+
+    return answer
+print(solution([1, 2, 3, 2, 3]))
