@@ -1,0 +1,91 @@
+#
+# def solution(prices):
+#     answer = []
+#     cnt =  0
+#     for i in range(len(prices)):
+#         for l in range(i+1,len(prices)):
+#             cnt += 1
+#             if prices[i] > prices[l]:break
+#         answer.append(cnt)
+#         cnt = 0
+#     return answer
+# print(solution([1, 2, 3, 2, 3]))
+
+#계산기 클래스
+# class Calculater:
+#     def __init__(self):
+#         self.data = 0
+#
+#     def ger_rec(self):
+#         self.rec = 0
+#         return self.rec
+#     def __add__(self, other):
+#         self.data += other
+#         self.rec = self.data + other
+#         return self.data
+#     def __sub__(self, other):
+#         self.rec = self.data - other
+#         self.data -= other
+#         return self.data
+#     def __mul__(self, other):
+#         self.rec = self.data * other
+#         self.data *= other
+#         return self.data
+#     def __truediv__(self, other):
+#         self.rec = self.data / other
+#         self.data /= other
+#         return self.data
+#     def clear(self):
+#         self.data = 0
+#         self.rec = 0
+# cal1 = Calculater()
+# print(cal1 + 10) # 10 __add__
+# print(cal1 - 2) # 8 __sub__
+# print(cal1 * 3) # 24    __mul__
+# print(cal1 / 2) #12.0   __div__
+# print(cal1.clear()) #지우기
+# print(cal1.ger_rec()) #저장하기  # 0 + 10 - 2 * 3 / 2 = 12.0
+
+# class Animal:
+#     def __init__(self,name):
+#         self.name = name
+# 
+# class DOG(Animal):
+#     def __init__(self,name):
+#         super().__init__(name)
+#         self.cries = "멍멍"
+#         self.rarity = "LOW"
+# 
+# dog = DOG("비숑")
+# print(dog.name)
+# print(dog.cries)
+
+#과제
+class STUDENT:
+    def __init__(self,name,age,num):
+        self.name = name
+        self.age = age
+        self.num = num
+class CLASS:
+    def __init__(self,teacher):
+        self.teacger = teacher
+        self.students = []
+    def input_stds(self,studnt):
+        self.students.append(studnt)
+class SCHOOL:
+    def __init__(self):
+        self.g1 = []
+        self.g2 = []
+        self.g3 = []
+    def input_class(self,Class,n):
+        if n == 1:
+            self.g1.append(Class)
+        elif n == 2:
+            self.g2.append(Class)
+        else:
+            self.g3.append(Class)
+s1 = STUDENT(name:"홍길동",age:19,num:1)
+c1 =CLASS("한종찬")
+c1.input_stds(s1)
+계남고 = SCHOOL()
+계남고.input_class(c1,n:3)
