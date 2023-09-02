@@ -1,0 +1,85 @@
+# def solution(arr):
+#     answer = []
+#     cnt = 0
+#     for i in arr[1:]:
+#         if cnt == 0:
+#             answer.append(i)
+#
+#         else:
+#             if arr[cnt] != i:
+#                 answer.append(i)
+#         cnt += 1
+#
+#     return answer
+# print(solution([1,1,3,3,0,1,1]))
+
+# a = int(input())
+# LIST = []
+# AS = 0
+# for _ in range(a):
+#     x = int(input())
+#     if x:
+#         LIST.append(x)
+#     else:
+#         if LIST:
+#             LIST.pop()
+# for i in LIST:
+#     AS += i
+# print(AS)
+#
+# a = int(input())
+# for i in range(1,a+1):
+#     stack = input().split()
+#     string = f"Case #{i}: "
+#     while stack:
+#         string += stack.pop()
+#         if len(stack) > 0:
+#             stack += ' '
+#     print(string)
+
+# import sys
+# input = sys.stdin.readline
+# # a = int(input)
+# # print(a)
+#
+# LIST = []
+# N = int(input())
+# for _ in range(N):
+#     n = input()
+#     if n[0] == '1':
+#         LIST.append(n.split()[-1])
+#     if n == '2':
+#         if LIST:
+#             print(LIST.pop())
+#         else:
+#             print(-1)
+#     if n == '3':
+#         print(len(LIST))
+#
+#     if n == '4':
+#         print((LIST == []) + 0 )
+#     if n == '5':
+#         if LIST:
+#             print(LIST[-1])
+#         else:
+#             LIST.append(-1)
+# print(-1)
+
+# 수소(H) 1 ,탄소(c): 12 ,산소(O): 16
+import sys
+input = sys.stdin.readline
+
+a = input()
+em_LIST = []
+STR = ''
+for i in a:
+    if STR in "(" or i == "(":
+        STR += i
+    else:
+        if i == ")":
+            STR += i
+        if int(i) is errer:
+            em_LIST.append(STR)
+            STR = 0
+
+print(em_LIST)
