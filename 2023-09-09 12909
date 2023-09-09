@@ -1,0 +1,57 @@
+def solution(s):
+    if s[-1]= and s[1]
+
+    return True
+# import sys
+# input = sys.stdin.readline
+# evaluation = input().rstrip()
+# atom = {"H":1,"C":12,"O":16}
+# stack = []
+#
+# for ev in evaluation:
+#     if ev == "(":
+#         stack.append(ev)
+#     elif ev == ')':
+#         summery = 0
+#
+#         while True:
+#             st = stack.pop()
+#             if st == "(":
+#                 break
+#             summery += st
+#         stack.append(summery)
+#     elif ev in atom:
+#         stack.append(atom[ev])
+#     else:
+#         stack[-1] *= int(ev)
+# print(sum(stack))
+
+
+
+
+
+
+# a = input()
+# an = 0
+# D = {"H":1,"C":12,"O":16}
+# LIST = []
+# start = 0
+# for i in range(len(a)):
+#     if a[i] == "(":
+#         start = 0
+#     elif a[i] == ")":
+#         LIST.append(start)
+#     elif a[i] in D:
+#         start += D[a[i]]
+#     elif a[i].isdigit():
+#         if a[i-1] in D:
+#             start += D[a[i-1]] * (int(a[i])-1)
+#         elif a[i-1] == ")":
+#             LIST[-1] *= int(a[i])
+# print(LIST)
+# for I in LIST:
+#     an += I
+# print(an)
+
+       # turtle 패키지 임포트, t 로 줄임
+
