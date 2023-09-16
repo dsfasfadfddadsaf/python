@@ -1,0 +1,83 @@
+# def solution(s):
+#     stack = []
+#     for i in s:
+#         if stack == [] or i == "(":
+#             stack.append(i)
+#         elif stack[-1] == "(" and i ==')':
+#             stack.pop()
+#     return len(stack) == 0
+
+# 노드 클래스
+# class QueueElement:
+#     def __init__(self,data,link = None):
+#         self.data = data
+#         self.link = link
+#
+# # Queue 클래스
+# class Queue:
+#     def __init__(self):
+#         self.rear = None        # <-- rear : 입구(가장 최근에 들어온 element를 가리킨다.)
+#         self.front = None       # <-- front: 출구(다음에 나갈 element를 가리킨다.)
+#
+#     # data를 입력받고 element를 Queue에 추가 하는함수
+#     def enque(self,data):
+#         # Queue가 비어있을때
+#         if self.rear is None:
+#             elem = QueueElement(data)
+#             self.rear = self.front = elem
+#         # Queue가 비어잇지 않을 때
+#         else:
+#             elem = QueueElement(data)
+#             self.rear.link = elem
+#             self.rear = elem
+#
+#     def deque(self):
+#         if self.front is None:
+#             return None
+#         #Element가 하나만 있을때
+#         elif self.rear == self.front:
+#             ret_data = self.front.data
+#             self.rear = self.front = None
+#             return ret_data
+#         # elem이 여러개 있을 떄
+#         else:
+#             ret_data = self.front.data
+#             self.front = self.front.link
+#             return ret_data
+#
+#
+# q = Queue()
+# for i in range(1,6):
+#     q.enque(i)
+# for _ in range(6):
+#     print(q.deque())
+
+# push X: 정수 X를 큐에 넣는 연산이다.
+# pop: 큐에서 가장 앞에 있는 정수를 빼고, 그 수를 출력한다. 만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.
+# size: 큐에 들어있는 정수의 개수를 출력한다.
+# empty: 큐가 비어있으면 1, 아니면 0을 출력한다.
+# front: 큐의 가장 앞에 있는 정수를 출력한다. 만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.
+# back: 큐의 가장 뒤에 있는 정수를 출력한다. 만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.
+
+# import sys
+# input = sys.stdin.readline
+# queue = []
+# n = int(input())
+# for _ in range(n):
+#     order = input().split()
+#     if order[0] == 'push':
+#         queue.append(order[1])
+#     elif order[0] == 'pop':
+#         if queue:
+#             print(queue.pop(0))
+#         else:
+#             print(-1)
+#     elif order[0] == 'size':
+#         print(len(queue))
+#     elif order[0] =='empty':
+#         print((queue == [])+0)
+#     elif order[0] == 'front':
+#         if queue:
+#             print(queue[0])
+#         else:
+#             print(-1)
