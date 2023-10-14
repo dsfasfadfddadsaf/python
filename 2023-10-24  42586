@@ -1,0 +1,65 @@
+# def solution(s:str):
+#     s = s[1:-1]
+#     s = s.replace(",{",' ').replace("}", "").replace("{","")
+#     s = s.split(" ")
+#     slist = []
+#     for sl in s:
+#         slist.append(set(map(int,sl.split(","))))
+#     slist.sort(key= lambda x: len(x))
+#     return  slist
+#
+# def S(s):
+#     sl = solution(s)
+#     temp = sl[0]
+#     answer = [sl[0].pop()]
+#     for i in range(1,len(sl)):
+#         answer.append((sl[i]-temp).pop())
+#         temp = sl[i]
+#     return answer
+# print(S("{{2},{2,1},{2,1,3},{2,1,3,4}}"))
+#
+# def solution(n, words):
+#     num, turn = 1,1
+#     for i in range(1,len(words)):
+#         num += 1
+#         if num > n:
+#             turn += 1
+#             num = 1
+#         if words[i-1][-1] != words[i][0]:
+#             return [num, turn]
+#         elif words[i] in words[:i]:
+#             return [num, turn]
+#         elif len(words[i]) == 1:
+#             return [num,turn]
+#     return [0,0]
+#         #조건 : 전에 말한 단어의 끝 문자로 시작해야한다.
+#         # 한글자 문자는 안된다.
+#         # 전에 말한 단어는 안된다.
+#
+# print(solution(3,["tank", "kick", "know",
+#                   "wheel", "land", "dream",
+#                   "mother", "robot", "tank"]))
+
+def solution(cacheSize, cities):
+    answer = 0
+    canh_LIST = []
+    if cacheSize == 0:
+        return len(cities) * 5
+    for i in cities:
+        i = i.upper()
+        # canh hit
+        if i in canh_LIST:
+            if len(canh_LIST) ==cacheSize:
+                canh_LIST.remove(i)
+            canh_LIST.append(i)
+            answer += 1
+        # cang miss
+        else:
+            if len(canh_LIST) == cacheSize:
+                del(canh_LIST[0])
+            canh_LIST.append(i)
+            answer += 5
+    return answer
+print(solution(3,["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"]))
+# 소문자 변경 (문자열).lower()
+# 대문자 변경 (문자열).upper()
