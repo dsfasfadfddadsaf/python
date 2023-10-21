@@ -1,0 +1,17 @@
+def solution(progresses, speeds):
+    cnt = 0
+    answer = []
+    d = {}
+    for i in range(len(speeds)):
+        while progresses[i]  < 100:
+            progresses[i] += speeds[i]
+            cnt += 1
+        if not d in cnt:
+            d[cnt] = 1
+        else:
+            d[cnt] += 1
+
+
+
+    return answer
+print([93, 30, 55],	[1, 30, 5])
