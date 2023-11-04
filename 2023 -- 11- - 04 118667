@@ -1,0 +1,53 @@
+# def solution(n):
+#     answer = []
+#     # n = 10
+#     # a = sum(rnage(n+1))
+#     # a = 1+2+3+....+10
+#     #a = sum(range(n+1))
+#     a = 1
+#     cnt = 1
+#     for _ in range(n):
+#         answer.append([])
+#     for A in range(n,0,-1):
+#         if cnt % 3 == 1:
+#             #[[1]]
+#             for i in range(A):
+#                 answer[i + (cnt // 3) * 2 ].insert(cnt // 3,a)
+#                 a += 1
+#             cnt += 1
+#
+#         elif cnt % 3 == 2:
+#             for l in range(A):
+#                 answer[n-((cnt // 3)+1)].insert(len(answer[n-((cnt // 3)+1)])-((cnt//3)),a)
+#                 a += 1
+#             cnt += 1
+#         else:
+#             for k in range(1,A):
+#                 print(k)
+#                 answer[n - (((cnt // 3)) )-k].insert(len(answer[n - (cnt // 3)-k])-(cnt//3),a)
+#                 a+=1
+#             cnt +=1
+#         print(answer)
+#     #return answer
+# print(solution(6))
+
+# def solution(n):
+#     answer = [[0] * i  for i in range(1,n+1)]
+#     movment =[[1,0],[0,1],[-1,-1]]
+#     numbers = [i for i in range(n,0,-1)]
+#     m = 0
+#     num = 1
+#     x,y = -1,0
+#     for number in numbers:
+#         for _ in range(number):
+#             x += movment[m%3][0]
+#             y += movment[m%3][1]
+#             answer[x][y] = num
+#             num += 1
+#         m += 1
+#     return [a for ans in answer for a in ans]
+# print(solution(4))
+
+def solution(queue1, queue2):
+    answer = -2
+    return answer
