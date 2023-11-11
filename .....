@@ -1,0 +1,42 @@
+# def solution(maps):
+#     answer = []
+#     cnt = 0
+#     m,n = len(maps),len(maps[0])
+#     for y in range(m-1):
+#         for x in range(n-1):
+#             if maps[y][x] != 'X':
+#                 if y == 0:
+#                     if x == 0:
+#                         if maps[y][x+1] != "X":
+#
+#                         if maps[y+1][x] != "X":
+#
+#                     elif x == 0:
+#                 cnt += maps[y][x]
+#
+#
+#
+# print(solution(["X591X",
+#                 "X1X5X",
+#                 "X231X",
+#                 "1XXX1"]))
+
+def solution(queue1, queue2):
+    answer = -2
+    q = queue1 + queue2
+    start = 0
+    end = 0
+    now = 0
+    all = 0
+    for i in q:
+        all += i
+    # 큐 두개로 못나누면 -1
+    if all % 2 == 1:
+        return -1
+    all //= 2
+    # 시작부터 같으면 0
+    if sum(queue1) == all:
+        return 0
+    while 
+    return answer
+print(solution([3, 2, 7, 2],	[4, 6, 5, 1]))
