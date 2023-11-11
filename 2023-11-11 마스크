@@ -1,0 +1,74 @@
+# def solution(queue1, queue2):
+#     answer = 0
+#     q = queue1 + queue2
+#     all = sum(q)
+#     # 큐 두개로 못나누면 -1
+#     if all % 2 == 1:
+#         return -1
+#     all //= 2
+#     # 시작부터 같으면 0
+#     if sum(queue1) == all:
+#         return 0
+#     while sum(queue1) != sum(queue2):
+#         if sum(queue1) > sum(queue2):
+#             queue2.append(queue1[0])
+#             del(queue1[0])
+#             answer +=1
+#
+#         elif sum(queue1) < sum(queue2):
+#             queue1.append(queue2[0])
+#             del(queue2[0])
+#             answer +=1
+#
+#     return answer
+# print(solution([3, 2, 7, 2]	,[4, 6, 5, 1]	))
+
+# def solution(queue1, queue2):
+#     queue = (queue1 + queue2)
+#     half = sum(queue) / 2
+#     if half != int(half) : return  -1
+#     sum_q1 = sum(queue1)
+#     s,m,e = 0,len(queue1),len(queue2)-1
+#     cnt = 0
+#     while half != sum_q1:
+#         cnt += 1
+#         if m >= len(queue): return -1
+#         if sum_q1 > half:
+#             sum_q1 -= queue[s]
+#             s += 1
+#         elif sum_q1 < half:
+#             sum_q1 += queue[m]
+#             m +=1
+#     return cnt
+# print(solution([3, 2, 7, 2]	,[4, 6, 5, 1]))
+
+import requests
+import json
+
+def get_masknum():
+    servicekey = 'kpYjoKW3DY2w/cpIBnBcjJOhZzVWZDPVZszUZQZ/cEE5lTvNxB+DSv2c4XVlMe12Pnw6IX+lXfpWC9Tb72oqFw=='
+    url = 'http://apis.data.go.kr/B552584/ArpltnStatsSvc/getCtprvnMesureLIst'
+    pm10_params ={'serviceKey' : servicekey, 'returnType' : 'json', 'numOfRows' : '100', 'pageNo' : '1', 'itemCode' : 'PM10', 'dataGubun' : 'HOUR', 'searchCondition' : 'MONTH' }
+    response = requests.get(url, params=pm10_params).content
+    result = json.loads(response)
+    print(type(result),result)
+    print(result['response']['body']['items'][0])
+    pm10_incheon = result['response']['body']['items'][0]['incheon']
+    pm10_geyonggi = result['response']['body']['items'][0]['gyeonggi']
+    pm10_avg = (int(pm10_incheon) + int(pm10_geyonggi)) / 2
+    print(f"미세먼지 인천:{pm10_incheon}, 경기{pm10_geyonggi}, 평군:{pm10_avg}")
+    pm25_params = {'serviceKey' : servicekey, 'returnType' : 'json', 'numOfRows' : '100', 'pageNo' : '1', 'itemCode' : 'PM25', 'dataGubun' : 'HOUR', 'searchCondition' : 'MONTH' }
+    response = requests.get(url, params=pm25_params).content
+    result = json.loads(response)
+    pm25_incheon = result['response']['body']['items'][0]['incheon']
+    pm25_geyonggi = result['response']['body']['items'][0]['gyeonggi']
+    pm25_avg = (int(pm25_incheon) + int(pm25_geyonggi)) / 2
+    print(f"초미세먼지 인천:{pm25_incheon}, 경기:{pm25_geyonggi}, 평군:{pm25_avg}")
+    
+    # 미세먼지 기준: 0-30:좋음(1단계),31~80:보통(2단계), 81~150:나쁨(3단계), 151이상: 매우나쁨(4단계)
+    # 초미세먼지 기준:0-15:좋음(1단계),16~35: 보통(2단계), 36-75:나쁨(3단계), 76이상: 매우나쁨(4단계)
+
+    for n,pm10_sd in enumerate([30,80,150,float('inf')], start = 1):
+        if pm10_avg <= pm10_sd:
+            pm10_n = n
+            break
