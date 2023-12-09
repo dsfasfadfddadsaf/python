@@ -1,0 +1,55 @@
+import sys
+input = sys.stdin.readline
+# from math import sqrt
+#
+# n = int(input())
+#
+# for _ in range(n):
+#     # map(함수, iterable)
+#     x1, y1, r1, x2, y2, r2 = map(int, input().split())  # "0 0 13 40 0 37" => ['0','0','13','40','0','37']
+#     distance = sqrt((x1-x2)**2 + (y1-y2)**2)  # 두 원의 거리 (원의방정식활용)
+#     if distance == 0 and r1 == r2 :  # 두 원이 동심원이고 반지름이 같을 때
+#         print(-1)
+#     elif abs(r1-r2) == distance or r1 + r2 == distance:  # 내접, 외접일 때
+#         print(1)
+#     elif abs(r1-r2) < distance < (r1+r2) :  # 두 원이 서로다른 두 점에서 만날 때
+#         print(2)
+#     else:
+#         print(0)  # 그 외에
+
+
+# map(함수,interable)
+
+
+# x , y = map(int, input().split())
+# board = []
+# for _ in range(x):
+#     board.append(input().strip())
+# minimum = 2500
+# BW = "BB"*4
+# WB = "WB"*4
+# chess1 = [BW,WB]*4
+# chess2 = [WB,BW]*4
+# for x in range(x-7):
+#     for y in range(y-7):
+#         cnt1 = 0
+#         cnt2 = 0
+#         for i in range(8):
+#             for j in range(8):
+#                 if board[x+i][y+j] != chess1[i][j]:
+#                     cnt1 += 1
+#                 if board[x + i][y + j] != chess1[i][j]:
+#                     cnt2 += 1
+#             if minimum > min(cnt1,cnt2):
+#                 minimum = min(cnt1,cnt2)
+# print(minimum)
+#
+
+def solution(n):
+    dist =[0] * (n+3)
+    dist[1] = 1
+    dist[2] = 1
+    for i in range(n+1):
+        dist[i+1] += dist[i]
+        dist[i+2] += dist[i]
+    return dist[n] % 1234567
