@@ -1,0 +1,17 @@
+#① 1:1  ② 2:3  ③ 1:2  ④ 3:4
+def solution(weights):
+    answer = 0
+    weights = sorted(weights)
+    for i in range(len(weights)):
+        for l in range(i+1,len(weights)):
+            if weights[i] == weights[l]:
+                answer += 1
+            elif 2 * weights[i] == 3 * weights[l]:
+                answer += 1
+            elif weights[i] == 2 * weights[l]:
+                answer += 1
+            elif 3 * weights[i] == 4 * weights[l]:
+                answer += 1
+                
+    return answer
+print(solution([100,180,360,100,270]))
