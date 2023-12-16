@@ -1,0 +1,108 @@
+# # 1:1   2:3   1:2   3:4
+# def solution(weights):
+#     answer = 0
+#     weights = sorted(weights)
+#     for i in range(len(weights)-1):
+#         for l in range(i+1,len(weights)):
+#             if weights[i] == weights[l]:
+#                 answer += 1
+#             elif 2 * weights[i] == 3 * weights[l]:
+#                 answer += 1
+#             elif 3 * weights[i] == 2 * weights[l]:
+#                 answer += 1
+#             elif 2 * weights[i] == weights[l]:
+#                 answer += 1
+#             elif weights[i] == 2 * weights[l]:
+#                 answer += 1
+#             elif 4 * weights[i] == 3 * weights[l]:
+#                 answer += 1
+#             elif 3 * weights[i] == 4 * weights[l]:
+#                 answer += 1
+#     return answer
+# print(solution([100,180,360,100,270]))
+
+# 클래스 상속
+# class Family: # 부모 클래스
+#     lastname = '홍'
+#     # 2 개의 사용 위치
+#     def lname(self):
+#         print("성은 %s입니다."% self.lastname)
+# class Person(Family):
+#     firstname = "길동"
+#     #1개의 사용 위치
+#     def Fname(self):
+#         print("이름은 %s입니다."% self.firstname)
+# class FirstClass:
+#     def __init__(self):
+#         self.v1 = 0
+#         self.v2 = 1
+#         self.v3 = ['a','b','c']
+#     # 1개의 사용 위치
+#     def GetV3(self):
+#         return self.v3 + ['d','e']
+#
+# class SecondClass:
+#     def __init__(self):
+#         self.c1 = []
+#         self.c2 = 'hello'
+#         self.c3 = FirstClass()
+# obj  = SecondClass()
+#
+# print(obj.c1)
+# print(obj.c2)
+# print(obj.c3)
+# print(obj.c3.v1)
+# print(obj.c3.v2)
+# print(obj.c3.v3)
+# print(obj.c3.GetV3())
+
+class Student:
+    def __init__(self,n,a,g):
+        self.name = n
+        self.age = a
+        self.grade = g
+
+    def GetName(self):
+        return self.name
+    def GetAge(self):
+        return self.age
+    def GetGrade(self):
+        return self.grade
+    def ShowData(self):
+        print("학생이름: %s 학생 나이: %s 학생 학년 : %s" %(self.name,self.age,self.grade))
+class StudentManager:
+    def __init__(self):
+        self.sl = []
+
+    def InputStudent(self):
+        in_name = input("이름 : ")
+        in_age = input("나이 :")
+        in_grade = input("학년 : ")
+        self.sl.append(Student(in_name,in_age,in_grade))
+
+    def ShowAll(self):
+        print("-----------전체학생 목록----------")
+        for i in range(len(self.sl)):
+            self.sl[i].ShowData()
+        print("----------------------------")
+
+sm = StudentManager()
+while True:
+    print("학생관리 시스템")
+    print("--------------")
+    print('1. 학생 추가')
+    print('2. 학생 조회')
+    print('0. 종료')
+    print('---------------------------')
+    i = input('>> 값 입력')
+    if i == '1':
+        sm.InputStudent()
+        print('성공적으로 추가됨')
+    elif i == '2':
+        sm.ShowAll()
+    elif i == '0':
+        print('프로그램 종료됨')
+        break
+    else:
+        print('잘못된 입력값입니다. 다시 입력해주세요.')
+
