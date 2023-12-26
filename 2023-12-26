@@ -1,0 +1,27 @@
+#1 ~ 9999 범위의 행복 수의 개수와 총합을 구하여 두 수의 곱을 제출하세요.
+C_List = []
+cnt = 0
+all_cnt = 0
+for i in range(1,10000):
+    keep = i
+    while True:
+        if keep < 10:
+            keep *= keep
+        elif 10 <= keep and keep <= 99:
+            keep = (keep//10) ** 2 + (keep%10)**2
+        elif 100 <= keep and keep <= 999:
+            keep = (keep //100) ** 2 + ((keep // 10)%10) ** 2 + (keep % 10) * 2
+        elif 1000<= keep  and keep <= 9999:
+            keep = (keep // 1000) ** 2 + ((keep // 100)%10) ** 2 + ((keep // 10)%10) ** 2 + (keep % 10) ** 2
+        if keep in C_List or i == keep:
+            C_List = []
+            break
+        elif keep == 1:
+            all_cnt += i
+            cnt += 1
+            C_List = []
+            break
+        else:
+            C_List.append(keep)
+print(all_cnt)
+print(cnt)
