@@ -1,0 +1,58 @@
+#1 ~ 9999 범위의 행복 수의 개수와 총합을 구하여 두 수의 곱을 제출하세요.
+# C_List = []
+# cnt = 0
+# all_cnt = 0
+# for i in range(1,10000):
+#     keep = i
+#     while True:
+#         if keep < 10:
+#             keep *= keep
+#         if 10 <= keep and keep <= 99:
+#             keep = (keep//10) ** 2 + (keep % 10)**2
+#         if 100 <= keep and keep <= 999:
+#             keep = (keep //100) ** 2 + ((keep // 10)%10) ** 2 + (keep % 10) ** 2
+#         if 1000 <= keep and keep <= 9999 :
+#             keep = (keep // 1000) ** 2 + ((keep // 100) % 10) ** 2 + ((keep // 10) % 10) ** 2 + (keep % 10) ** 2
+#         if keep in C_List or i == keep:
+#             C_List = []
+#             break
+#         elif keep == 1:
+#             all_cnt += i
+#             print(i)
+#             cnt += 1
+#             C_List = []
+#             break
+#         else:
+#             C_List.append(keep)
+# print(all_cnt)
+# print(cnt)
+
+#1원
+# 80,270원
+# 111,111원
+# 1,234,567,890원
+# 100,000,000,000,000원
+
+# 일원
+# 팔만 이백칠십원
+# 십일만 천백십일원
+# 십이억 삼천사백오십육만 칠천팔백구십원
+# 백조원
+#숫자
+L_List  = ['일','이','삼','사','오','육','칠','팔','구']
+#표준 단어
+Standard_unit,standard_unit_2 = ['만','억','조'],['십','백','조']
+money = "1234원"#int(input())
+a = money.split('원')
+a[1] = '원'
+answer = ''
+if a[0] in ',':
+    pass
+else:
+    cnt =-1
+    for i in range(len(a[0])-1,-1,-1):
+       if cnt == -1:
+          answer += str(L_List.index(a[0][i]))
+          cnt += 1
+       else:
+           answer += standard_unit_2[cnt]+str(L_List.index(a[0][i]))
