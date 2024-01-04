@@ -1,0 +1,30 @@
+#1원
+# 80,270원
+# 111,111원
+# 1,234,567,890원
+# 100,000,000,000,000원
+
+# 일원
+# 팔만 이백칠십원
+# 십일만 천백십일원
+# 십이억 삼천사백오십육만 칠천팔백구십원
+# 백조원
+#숫자
+L_List  = ['일','이','삼','사','오','육','칠','팔','구']
+#표준 단어
+Standard_unit,standard_unit_2 = ['','만','억','조'],['','십','백','천']
+money = "123,875,421"#int(input())]
+money.replace(',','')
+CNT = money.count(',')
+a = money.split(',')
+answer = ''
+cnt = 0
+STR = ''
+for A in range(CNT+1):
+    for i in range(len(a[A])-1,-1,-1):
+        STR += standard_unit_2[cnt]+L_List[int(a[A][i])-1]
+        cnt += 1
+    answer += STR[::-1] + Standard_unit[CNT-A]
+    STR = ''
+    cnt = 0
+print(answer)
